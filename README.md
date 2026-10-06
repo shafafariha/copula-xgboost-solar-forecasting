@@ -75,12 +75,12 @@ The complete undergraduate thesis is officially archived in the **Institut Tekno
 ### Bahasa Indonesia
 Permintaan energi yang meningkat di Pulau Jawa dan ketergantungan Indonesia pada bahan bakar fosil menimbulkan tantangan bagi ketahanan energi dan keberlanjutan lingkungan. Energi surya merupakan solusi strategis, namun karakteristiknya yang sangat dipengaruhi kondisi cuaca membuat peramalan dayanya kompleks. Penelitian ini mengembangkan model prediksi distribusi probabilistik potensi radiasi surya berbasis Copula dan XGBoost, menggunakan data cuaca spasial-temporal di wilayah terpilih Pulau Jawa selama 2019–2023. 
 
-Hasil menunjukkan bahwa hubungan antara radiasi surya dan variabel meteorologi harian bersifat kompleks dan bervariasi antar sub-klaster cuaca. Copula bivariat mampu menangkap ketergantungan antar variabel, dengan seluruh parameter signifikan secara statistik. Pemilihan Copula multivariat optimal menunjukkan perbedaan karakteristik struktur ketergantungan, dengan Copula Gaussian merepresentasikan hubungan yang relatif simetris, sementara Copula Student-t menunjukkan adanya *tail dependence* pada kejadian radiasi ekstrem. XGBoost Classifier mengklasifikasikan dengan akurasi 0,926, sedangkan XGBoost Regressor menghasilkan prediksi dengan RMSE pengujian 0,0632 dan $R^2$ sebesar 0,8990. Evaluasi probabilistik menunjukkan kinerja yang andal dengan CRPS 0,0346, Pinball Loss rendah pada P10 (0,0116), P50 (0,0245), dan P90 (0,0102), serta sharpness 90% sebesar 0,1914. Secara keseluruhan, pendekatan Copula dan XGBoost menghasilkan prediksi probabilistik radiasi surya harian yang valid dan mendukung pengambilan keputusan berbasis risiko untuk perencanaan dan pengelolaan PLTS di Pulau Jawa.
+Hasil menunjukkan bahwa hubungan antara radiasi surya dan variabel meteorologi harian bersifat kompleks dan bervariasi antar sub-klaster cuaca. Copula bivariat mampu menangkap ketergantungan antar variabel, dengan seluruh parameter signifikan secara statistik. Pemilihan Copula multivariat optimal menunjukkan perbedaan karakteristik struktur ketergantungan, dengan Copula Gaussian merepresentasikan hubungan yang relatif simetris, sementara Copula Student-t menunjukkan adanya *tail dependence* pada kejadian radiasi ekstrem. XGBoost Classifier mengklasifikasikan dengan akurasi 0,926, sedangkan XGBoost Regressor menghasilkan prediksi dengan RMSE pengujian 0,0632 dan R² sebesar 0,8990. Evaluasi probabilistik menunjukkan kinerja yang andal dengan CRPS 0,0346, Pinball Loss rendah pada P10 (0,0116), P50 (0,0245), dan P90 (0,0102), serta sharpness 90% sebesar 0,1914. Secara keseluruhan, pendekatan Copula dan XGBoost menghasilkan prediksi probabilistik radiasi surya harian yang valid dan mendukung pengambilan keputusan berbasis risiko untuk perencanaan dan pengelolaan PLTS di Pulau Jawa.
 
 ### English
 Increasing energy demand in Java Island and Indonesia’s reliance on fossil fuels pose significant challenges to energy security and environmental sustainability. Solar energy represents a strategic solution; however, its strong dependence on weather conditions makes power forecasting complex. This study develops a probabilistic distribution prediction model for daily solar radiation potential using a Copula and XGBoost framework based on spatio-temporal weather data from selected regions in Java Island during 2019–2023. 
 
-The results indicate that the relationship between solar radiation and daily meteorological variables is complex and varies across weather sub-clusters. Bivariate copulas effectively capture the dependence structure among variables, with all parameters being statistically significant. Optimal multivariate copula selection reveals differences in dependence characteristics, where the Gaussian copula represents relatively symmetric dependence, while the Student-t copula indicates the presence of tail dependence in extreme solar radiation events. The XGBoost Classifier achieves an accuracy of 0.926, while the XGBoost Regressor provides reliable solar radiation predictions with a testing RMSE of 0.0632 and an $R^2$ value of 0.8990. Probabilistic evaluation demonstrates robust performance, reflected by a CRPS of 0.0346, low Pinball Loss values at P10 (0.0116), P50 (0.0245), and P90 (0.0102) quantiles, and a 90% sharpness of 0.1914. Overall, the proposed Copula and XGBoost approach produces valid probabilistic forecasts of daily solar radiation and supports risk-based decision-making for solar power plant planning and management in Java Island.
+The results indicate that the relationship between solar radiation and daily meteorological variables is complex and varies across weather sub-clusters. Bivariate copulas effectively capture the dependence structure among variables, with all parameters being statistically significant. Optimal multivariate copula selection reveals differences in dependence characteristics, where the Gaussian copula represents relatively symmetric dependence, while the Student-t copula indicates the presence of tail dependence in extreme solar radiation events. The XGBoost Classifier achieves an accuracy of 0.926, while the XGBoost Regressor provides reliable solar radiation predictions with a testing RMSE of 0.0632 and an R² value of 0.8990. Probabilistic evaluation demonstrates robust performance, reflected by a CRPS of 0.0346, low Pinball Loss values at P10 (0.0116), P50 (0.0245), and P90 (0.0102) quantiles, and a 90% sharpness of 0.1914. Overall, the proposed Copula and XGBoost approach produces valid probabilistic forecasts of daily solar radiation and supports risk-based decision-making for solar power plant planning and management in Java Island.
 
 ---
 
@@ -97,12 +97,12 @@ The research analyzes spatio-temporal daily weather observations (2019–2023) a
 ### Variables Description:
 | Symbol | Variable Name | Original Unit | Standardized Unit | Description |
 | :---: | :--- | :---: | :---: | :--- |
-| **$Y$** | **SSRD (Surface Solar Radiation Downwards)** | $\text{J/m}^2$ | $\text{MJ/m}^2$ | **Target variable**: Daily incoming solar radiation |
-| **$X_1$** | Temperature | $\text{Kelvin}$ | $^\circ\text{C}$ | Daily mean surface air temperature |
-| **$X_2$** | Relative Humidity | Ratio $[0, 1]$ | $\%$ | Relative humidity percentage (capped at $100\%$) |
-| **$X_3$** | Surface Pressure | $\text{Pa} / \text{hPa}$ | Standardized | Atmospheric air pressure at surface level |
-| **$X_4$** | Wind Speed | $\text{m/s}$ | $\text{km/h}$ | Daily mean wind speed |
-| **$X_5$** | Total Precipitation | $\text{mm}$ | $\text{cm}$ | Accumulated rainfall/precipitation |
+| **Y** | **SSRD (Surface Solar Radiation Downwards)** | J/m² | MJ/m² | **Target variable**: Daily incoming solar radiation |
+| **X₁** | Temperature | Kelvin (K) | °C | Daily mean surface air temperature |
+| **X₂** | Relative Humidity | Ratio [0, 1] | % | Relative humidity percentage (capped at 100%) |
+| **X₃** | Surface Pressure | Pa / hPa | Standardized | Atmospheric air pressure at surface level |
+| **X₄** | Wind Speed | m/s | km/h | Daily mean wind speed |
+| **X₅** | Total Precipitation | mm | cm | Accumulated rainfall/precipitation |
 | **Spatial** | Latitude & Longitude | Decimal Degrees | Decimal Degrees | Spatial coordinates for regional referencing |
 
 ---
@@ -170,59 +170,65 @@ The research analyzes spatio-temporal daily weather observations (2019–2023) a
 
 ### 1. Data Preprocessing & Unit Standardizations
 - Missing value imputation and consistency verification.
-- Unit conversion: Solar radiation $Y$ from $\text{J/m}^2$ to $\text{MJ/m}^2$, temperature $X_1$ from Kelvin to $^\circ\text{C}$, relative humidity $X_2$ to percentage, wind speed $X_4$ to $\text{km/h}$, and rainfall $X_5$ to $\text{cm}$.
+- Unit conversion: Solar radiation (Y) from J/m² to MJ/m², temperature (X₁) from Kelvin to °C, relative humidity (X₂) to percentage, wind speed (X₄) to km/h, and rainfall (X₅) to cm.
 
 ### 2. Weather Regimes & Solar Radiation Sub-Clustering
-- Observations categorized into primary weather conditions ("Cerah" and "Hujan") following BMKG precipitation thresholds ($X_5 \le 0.1\text{ cm}$) and cloud cover/humidity metrics.
-- Sub-clustering implemented via **K-Means Clustering** on radiation target $Y$ within each regime, determined using the Elbow Method (Within-Cluster Sum of Squares / WSS):
+- Observations categorized into primary weather conditions ("Cerah" and "Hujan") following BMKG precipitation thresholds (X₅ ≤ 0.1 cm) and cloud cover/humidity metrics.
+- Sub-clustering implemented via **K-Means Clustering** on radiation target Y within each regime, determined using the Elbow Method (Within-Cluster Sum of Squares / WSS):
   - `Cerah-Rendah`, `Cerah-Sedang`, `Cerah-Tinggi`
   - `Hujan-Rendah`, `Hujan-Sedang`, `Hujan-Tinggi`
 
 ### 3. Dependence Modeling via Copulas
 
-#### A. Marginal Transformation to Pseudo-Observations (Empirical CDF)
-To isolate the scale-free joint dependence structure from individual marginal distributions, all continuous variables ($Y, X_1, \dots, X_5$) are transformed into uniform pseudo-observations $U_{ij} \in (0, 1)$ via the non-parametric rank-based Empirical Cumulative Distribution Function (ECDF):
+##### A. Marginal Transformation to Pseudo-Observations (Empirical CDF)
+To isolate the scale-free joint dependence structure from individual marginal distributions, all continuous variables (Y, X₁, X₂, X₃, X₄, X₅) are transformed into uniform pseudo-observations U_ij in (0, 1) via the non-parametric rank-based Empirical Cumulative Distribution Function (ECDF):
 
 $$
-U_{ij} = \hat{F}_{j}(X_{ij}) = \frac{\operatorname{rank}(X_{ij})}{n + 1}
+U_{ij} = \hat{F}_{j}(X_{ij}) = \frac{\text{rank}(X_{ij})}{n + 1}
 $$
 
-*where $n$ is the sample size of the respective sub-cluster, and the divisor $n + 1$ guarantees that $U_{ij}$ is strictly bounded within the open interval $(0, 1)$, preventing numerical divergence in inverse copula probability transforms (e.g., $\Phi^{-1}(0) = -\infty$, $\Phi^{-1}(1) = \infty$).*
+*where n is the sample size of the respective sub-cluster, and the divisor n + 1 guarantees that U_ij is strictly bounded within the open interval (0, 1), preventing numerical divergence in inverse copula probability transforms (e.g., Φ⁻¹(0) = -∞, Φ⁻¹(1) = +∞).*
 
-#### B. Bivariate Copula Selection & Hypothesis Testing ($Z$-Test)
-For each variable pair ($Y - X_i$) across all weather sub-clusters, multiple copula families were estimated via Maximum Likelihood Estimation (MLE) and evaluated through the Akaike Information Criterion (AIC):
-* **Elliptical Families**: Gaussian Copula and Student-$t$ Copula.
+#### B. Bivariate Copula Selection & Hypothesis Testing (Z-Test)
+For each variable pair (Y - X_i) across all weather sub-clusters, multiple copula families were estimated via Maximum Likelihood Estimation (MLE) and evaluated through the Akaike Information Criterion (AIC):
+* **Elliptical Families**: Gaussian Copula and Student-t Copula.
 * **Archimedean Families**: Clayton Copula (asymmetric lower-tail dependence), Gumbel Copula (asymmetric upper-tail dependence), and Frank Copula (symmetric radial dependence without tail dependence).
-* **Statistical Significance**: All estimated copula parameters $\hat{\theta}$ were verified using asymptotic $Z$-tests ($Z = \frac{\hat{\theta}}{\text{SE}}$ with $\text{SE} \approx \frac{1}{\sqrt{n}}$), confirming statistically significant dependence structures ($p < 0.05$) across all bivariate interactions.
+* **Statistical Significance**: All estimated copula parameters were verified using asymptotic Z-tests (Z = θ / SE with SE ≈ 1 / √n), confirming statistically significant dependence structures (p < 0.05) across all bivariate interactions.
 
-#### C. Multivariate Copula Modeling (6-Dimensional: $Y, X_1, \dots, X_5$)
-To capture simultaneous interdependencies among solar radiation and all five meteorological predictors ($d = 6$), multivariate copulas were constructed using **Ledoit-Wolf shrinkage covariance estimation** (`corpcor::cov.shrink`) combined with eigenvalue threshold jittering to guarantee strictly positive definite correlation matrices ($\mathbf{\Sigma} \succ 0$).
+#### C. Multivariate Copula Modeling (6-Dimensional: Y, X₁, ..., X₅)
+To capture simultaneous interdependencies among solar radiation and all five meteorological predictors (d = 6), multivariate copulas were constructed using **Ledoit-Wolf shrinkage covariance estimation** (`corpcor::cov.shrink`) combined with eigenvalue threshold jittering to guarantee strictly positive definite correlation matrices.
 
-#### D. Comparison & Regime Selection: Gaussian vs. Student-$t$ Copula
+#### D. Comparison & Regime Selection: Gaussian vs. Student-t Copula
 
-1. **Gaussian Copula**:
-   $$
-   C_{\mathbf{R}}^{\text{Gauss}}(\mathbf{u}) = \Phi_{\mathbf{R}}\left(\Phi^{-1}(u_1), \dots, \Phi^{-1}(u_d)\right)
-   $$
-   * **Tail Dependence**: $\lambda_U = \lambda_L = 0$ (zero tail dependence).
-   * **Regime Characteristics**: Selected as the optimal model for regimes exhibiting moderate, symmetric meteorological conditions where joint extremes do not cluster together (e.g., typical clear-sky and stable weather regimes).
+##### 1. Gaussian Copula
 
-2. **Student-$t$ Copula**:
-   $$
-   C_{\mathbf{R}, \nu}^{t}(\mathbf{u}) = t_{\mathbf{R}, \nu}\left(t_\nu^{-1}(u_1), \dots, t_\nu^{-1}(u_d)\right)
-   $$
-   * **Tail Dependence**: Symmetric non-zero tail dependence:
-     $$
-     \lambda_U = \lambda_L = 2 t_{\nu + 1}\left(-\sqrt{\frac{(\nu + 1)(1 - \rho)}{1 + \rho}}\right) > 0
-     $$
-   * **Regime Characteristics**: **Selected for regimes exhibiting distinct tail dependence, crucially capturing extreme meteorological anomalies and abrupt cloud shifts** (such as sudden heavy convective cloudbursts, squalls, or sharp drops/spikes in solar irradiance where classical Gaussian assumptions severely underestimate risk).
+$$
+C_{\mathbf{R}}^{\text{Gauss}}(\mathbf{u}) = \Phi_{\mathbf{R}}\left(\Phi^{-1}(u_1), \dots, \Phi^{-1}(u_d)\right)
+$$
+
+* **Tail Dependence**: λ_U = λ_L = 0 (zero tail dependence).
+* **Regime Characteristics**: Selected as the optimal model for regimes exhibiting moderate, symmetric meteorological conditions where joint extremes do not cluster together (e.g., typical clear-sky and stable weather regimes).
+
+##### 2. Student-t Copula
+
+$$
+C_{\mathbf{R}, \nu}^{t}(\mathbf{u}) = t_{\mathbf{R}, \nu}\left(t_\nu^{-1}(u_1), \dots, t_\nu^{-1}(u_d)\right)
+$$
+
+For bivariate pairs with correlation ρ and degrees of freedom ν, the symmetric tail dependence coefficient is:
+
+$$
+\lambda_U = \lambda_L = 2 \, t_{\nu + 1}\left(-\sqrt{\frac{(\nu + 1)(1 - \rho)}{1 + \rho}}\right) > 0
+$$
+
+* **Regime Characteristics**: **Selected for regimes exhibiting distinct tail dependence, crucially capturing extreme meteorological anomalies and abrupt cloud shifts** (such as sudden heavy convective cloudbursts, squalls, or sharp drops/spikes in solar irradiance where classical Gaussian assumptions severely underestimate risk).
 
 ### 4. Copula-Driven Synthetic Balancing
 - Leveraged the optimal multivariate copula distributions to generate balanced synthetic samples across under-represented sub-clusters, mitigating data imbalance while preserving joint multi-variable dependencies.
 
 ### 5. XGBoost Modeling (Classifier & Regime-Aware Regressor)
 - **XGBoost Classifier**: Configured with `binary:logistic` objective and `scale_pos_weight` handling, achieving **92.6% accuracy** in predicting the optimal copula regime from meteorological and spatial predictors.
-- **Regime-Aware XGBoost Regressor**: Engineered with pairwise interaction features ($X_i \times X_j$) and one-hot sub-cluster indicators. Optimized via 5-fold cross-validation with early stopping.
+- **Regime-Aware XGBoost Regressor**: Engineered with pairwise interaction features (X_i × X_j) and one-hot sub-cluster indicators. Optimized via 5-fold cross-validation with early stopping.
 
 ### 6. Probabilistic Forecasting & Uncertainty Quantification
 - Nonparametric **Gaussian Kernel Density Estimation (KDE)** fitted over out-of-fold residuals:
@@ -231,15 +237,15 @@ $$
 \hat{\epsilon} = Y - \hat{Y}
 $$
 
-- Quantile forecast distribution constructed across $P_{10}, P_{20}, \dots, P_{50}, \dots, P_{90}$ with dynamic volatility adjustments.
+- Quantile forecast distribution constructed across P10, P20, ..., P50, ..., P90 with dynamic volatility adjustments.
 - Validation metrics:
   - **CRPS (Continuous Ranked Probability Score)**
-  - **Pinball (Quantile) Loss** at $P_{10}, P_{50}, P_{90}$
-  - **Prediction Interval Sharpness** at $90\%$ confidence
+  - **Pinball (Quantile) Loss** at P10, P50, P90
+  - **Prediction Interval Sharpness** at 90% confidence
   - **PIT (Probability Integral Transform)** histogram confirming forecast calibration.
 
 ### 7. Geospatial Visualization across Java Island
-- Spatial point gridding and polygon clipping using administrative shapefiles (`sf`), mapping expected median ($P_{50}$) and tail risks ($P_{10}, P_{90}$) across Purwakarta, Bandung Barat, Grobogan, Madiun, Malang, and Banyuwangi.
+- Spatial point gridding and polygon clipping using administrative shapefiles (`sf`), mapping expected median (P50) and tail risks (P10, P90) across Purwakarta, Bandung Barat, Grobogan, Madiun, Malang, and Banyuwangi.
 
 ---
 
@@ -248,22 +254,22 @@ $$
 ### 1. Model Predictive Accuracy
 | Model Phase | Evaluation Metric | Training | Testing / Validation |
 | :--- | :--- | :---: | :---: |
-| **XGBoost Copula Classifier** | Overall Accuracy | $94.1\%$ | **$92.60\%$** |
-| | Balanced Accuracy | — | **$91.80\%$** |
-| | AUC Score | — | **$0.9410$** |
-| **Regime-Aware XGBoost Regressor** | **Root Mean Squared Error (RMSE)** | $0.0381$ | **$0.0632$** |
-| | **Mean Absolute Error (MAE)** | $0.0264$ | **$0.0451$** |
-| | **Coefficient of Determination ($R^2$)** | $0.9620$ | **$0.8990$ (~$89.9\%$)** |
+| **XGBoost Copula Classifier** | Overall Accuracy | 94.10% | **92.60%** |
+| | Balanced Accuracy | — | **91.80%** |
+| | AUC Score | — | **0.9410** |
+| **Regime-Aware XGBoost Regressor** | **Root Mean Squared Error (RMSE)** | 0.0381 | **0.0632** |
+| | **Mean Absolute Error (MAE)** | 0.0264 | **0.0451** |
+| | **Coefficient of Determination (R²)** | 0.9620 | **0.8990 (~89.9%)** |
 
 ### 2. Probabilistic Evaluation Metrics
 | Metric | Quantile / Horizon | Empirical Value | Interpretation |
 | :--- | :---: | :---: | :--- |
 | **CRPS (Test)** | Global | **0.0346** | High probabilistic accuracy across full density |
 | **CRPS (Train)** | Global | 0.0210 | Well-generalized calibration |
-| **Pinball Loss ($P_{10}$)** | 10th Quantile | **0.0116** | Low loss in extreme low radiation conditions |
-| **Pinball Loss ($P_{50}$)** | 50th Quantile (Median) | **0.0245** | Robust median alignment |
-| **Pinball Loss ($P_{90}$)** | 90th Quantile | **0.0102** | Precise capture of peak solar generation |
-| **Sharpness ($90\%$)** | $[P_{05}, P_{95}]$ Bandwidth | **0.1914** | Tight, actionable confidence bounds |
+| **Pinball Loss (P10)** | 10th Quantile | **0.0116** | Low loss in extreme low radiation conditions |
+| **Pinball Loss (P50)** | 50th Quantile (Median) | **0.0245** | Robust median alignment |
+| **Pinball Loss (P90)** | 90th Quantile | **0.0102** | Precise capture of peak solar generation |
+| **Sharpness (90%)** | [P05, P95] Bandwidth | **0.1914** | Tight, actionable confidence bounds |
 | **PIT Calibration** | Uniformity Check | Calibrated | Uniform PIT distribution indicates unbiasedness |
 
 ---
