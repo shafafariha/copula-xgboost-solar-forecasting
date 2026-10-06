@@ -65,7 +65,7 @@ The complete undergraduate thesis is officially archived in the **Institut Tekno
 >
 > 📬 **Requesting Source Code & Data:**  
 > Academic researchers, students, and collaborators wishing to inspect the full R scripts (`TA FINAL.Rmd`), pre-trained models (`.model`, `.rds`), or replication workflows for non-commercial academic validation may request access by contacting the author via email:
-> - **Author Email**: `130219249+shafafariha@users.noreply.github.com`
+> - **Author Email**: `shafafaraya@gmail.com`
 > - **Subject Line**: `[Code & Data Request] Thesis Copula-XGBoost Solar Forecasting - <Your Name / Affiliation>`
 
 ---
@@ -293,5 +293,5 @@ Tsuraya, S. F. (2026). Prediksi Distribusi Probabilistik Potensi Radiasi Surya H
 
 * **Researcher**: Shafa Fariha Tsuraya
 * **GitHub**: [@shafafariha](https://github.com/shafafariha)
-* **Email for Inquiries & Code Requests**: `130219249+shafafariha@users.noreply.github.com`
+* **Email for Inquiries & Code Requests**: shafafaraya@gmail.com`
 * **Department**: Departemen Statistika Bisnis, Fakultas Vokasi, Institut Teknologi Sepuluh Nopember (ITS), Surabaya, Indonesia
