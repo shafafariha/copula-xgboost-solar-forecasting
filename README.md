@@ -179,12 +179,43 @@ The research analyzes spatio-temporal daily weather observations (2019–2023) a
   - `Hujan-Rendah`, `Hujan-Sedang`, `Hujan-Tinggi`
 
 ### 3. Dependence Modeling via Copulas
-- Transform margins to uniform pseudo-observations using non-parametric rank-based empirical CDF:
-  $$U_{ij} = \hat{F}_{j}(X_{ij}) = \frac{\text{rank}(X_{ij})}{n + 1}$$
-- **Bivariate Copula Selection**: Fit Gaussian, Student-$t$, Clayton, Gumbel, and Frank copulas using Maximum Likelihood Estimation (MLE), selecting optimal candidates via Akaike Information Criterion (AIC). All estimated dependence parameters were statistically validated via two-tailed $Z$-tests ($p < 0.05$).
-- **Multivariate Copula Modeling (6-Dimensional: $Y, X_1, \dots, X_5$)**: Implemented with **Ledoit-Wolf shrinkage covariance estimation** (`corpcor::cov.shrink`) and eigenvalue jittering to ensure strictly positive definite correlation matrices.
-  - **Gaussian Copula**: Selected for regimes exhibiting symmetric dependency without heavy tail correlations.
-  - **Student-$t$ Copula**: Selected for regimes exhibiting distinct **tail dependence**, crucially capturing extreme meteorological anomalies and abrupt cloud shifts.
+
+#### A. Marginal Transformation to Pseudo-Observations (Empirical CDF)
+To isolate the scale-free joint dependence structure from individual marginal distributions, all continuous variables ($Y, X_1, \dots, X_5$) are transformed into uniform pseudo-observations $U_{ij} \in (0, 1)$ via the non-parametric rank-based Empirical Cumulative Distribution Function (ECDF):
+
+$$
+U_{ij} = \hat{F}_{j}(X_{ij}) = \frac{\operatorname{rank}(X_{ij})}{n + 1}
+$$
+
+*where $n$ is the sample size of the respective sub-cluster, and the divisor $n + 1$ guarantees that $U_{ij}$ is strictly bounded within the open interval $(0, 1)$, preventing numerical divergence in inverse copula probability transforms (e.g., $\Phi^{-1}(0) = -\infty$, $\Phi^{-1}(1) = \infty$).*
+
+#### B. Bivariate Copula Selection & Hypothesis Testing ($Z$-Test)
+For each variable pair ($Y - X_i$) across all weather sub-clusters, multiple copula families were estimated via Maximum Likelihood Estimation (MLE) and evaluated through the Akaike Information Criterion (AIC):
+* **Elliptical Families**: Gaussian Copula and Student-$t$ Copula.
+* **Archimedean Families**: Clayton Copula (asymmetric lower-tail dependence), Gumbel Copula (asymmetric upper-tail dependence), and Frank Copula (symmetric radial dependence without tail dependence).
+* **Statistical Significance**: All estimated copula parameters $\hat{\theta}$ were verified using asymptotic $Z$-tests ($Z = \frac{\hat{\theta}}{\text{SE}}$ with $\text{SE} \approx \frac{1}{\sqrt{n}}$), confirming statistically significant dependence structures ($p < 0.05$) across all bivariate interactions.
+
+#### C. Multivariate Copula Modeling (6-Dimensional: $Y, X_1, \dots, X_5$)
+To capture simultaneous interdependencies among solar radiation and all five meteorological predictors ($d = 6$), multivariate copulas were constructed using **Ledoit-Wolf shrinkage covariance estimation** (`corpcor::cov.shrink`) combined with eigenvalue threshold jittering to guarantee strictly positive definite correlation matrices ($\mathbf{\Sigma} \succ 0$).
+
+#### D. Comparison & Regime Selection: Gaussian vs. Student-$t$ Copula
+
+1. **Gaussian Copula**:
+   $$
+   C_{\mathbf{R}}^{\text{Gauss}}(\mathbf{u}) = \Phi_{\mathbf{R}}\left(\Phi^{-1}(u_1), \dots, \Phi^{-1}(u_d)\right)
+   $$
+   * **Tail Dependence**: $\lambda_U = \lambda_L = 0$ (zero tail dependence).
+   * **Regime Characteristics**: Selected as the optimal model for regimes exhibiting moderate, symmetric meteorological conditions where joint extremes do not cluster together (e.g., typical clear-sky and stable weather regimes).
+
+2. **Student-$t$ Copula**:
+   $$
+   C_{\mathbf{R}, \nu}^{t}(\mathbf{u}) = t_{\mathbf{R}, \nu}\left(t_\nu^{-1}(u_1), \dots, t_\nu^{-1}(u_d)\right)
+   $$
+   * **Tail Dependence**: Symmetric non-zero tail dependence:
+     $$
+     \lambda_U = \lambda_L = 2 t_{\nu + 1}\left(-\sqrt{\frac{(\nu + 1)(1 - \rho)}{1 + \rho}}\right) > 0
+     $$
+   * **Regime Characteristics**: **Selected for regimes exhibiting distinct tail dependence, crucially capturing extreme meteorological anomalies and abrupt cloud shifts** (such as sudden heavy convective cloudbursts, squalls, or sharp drops/spikes in solar irradiance where classical Gaussian assumptions severely underestimate risk).
 
 ### 4. Copula-Driven Synthetic Balancing
 - Leveraged the optimal multivariate copula distributions to generate balanced synthetic samples across under-represented sub-clusters, mitigating data imbalance while preserving joint multi-variable dependencies.
@@ -195,7 +226,11 @@ The research analyzes spatio-temporal daily weather observations (2019–2023) a
 
 ### 6. Probabilistic Forecasting & Uncertainty Quantification
 - Nonparametric **Gaussian Kernel Density Estimation (KDE)** fitted over out-of-fold residuals:
-  $$\hat{\epsilon} = Y - \hat{Y}$$
+
+$$
+\hat{\epsilon} = Y - \hat{Y}
+$$
+
 - Quantile forecast distribution constructed across $P_{10}, P_{20}, \dots, P_{50}, \dots, P_{90}$ with dynamic volatility adjustments.
 - Validation metrics:
   - **CRPS (Continuous Ranked Probability Score)**
