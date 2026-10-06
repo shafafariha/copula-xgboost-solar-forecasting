@@ -1,0 +1,35 @@
+# Data and raw files
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.rds
+*.RData
+*.rda
+
+# Model binaries
+*.model
+*.bin
+*.tar.gz
+*.zip
+
+# Shapefiles and geospatial assets
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+# R Markdown and source analysis scripts (Restricted / Private)
+*.Rmd
+*.Rproj
+.Rhistory
+.RData
+.Ruserdata
+
+# OS and IDE caches
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
