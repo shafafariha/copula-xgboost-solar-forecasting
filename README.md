@@ -328,5 +328,5 @@ Tsuraya, S. F. (2026). Prediksi Distribusi Probabilistik Potensi Radiasi Surya H
 
 * **Researcher**: Shafa Fariha Tsuraya
 * **GitHub**: [@shafafariha](https://github.com/shafafariha)
-* **Email for Inquiries & Code Requests**: shafafaraya@gmail.com`
+* **Email for Inquiries & Code Requests**: `shafafaraya@gmail.com`
 * **Department**: Departemen Statistika Bisnis, Fakultas Vokasi, Institut Teknologi Sepuluh Nopember (ITS), Surabaya, Indonesia
