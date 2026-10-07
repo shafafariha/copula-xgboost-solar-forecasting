@@ -9,6 +9,7 @@
 > **Title**: *Prediksi Distribusi Probabilistik Potensi Radiasi Surya Harian menggunakan Copula dan XGBoost Berdasarkan Data Cuaca di Pulau Jawa*  
 > **Author**: Shafa Fariha Tsuraya ([@shafafariha](https://github.com/shafafariha))  
 > **Supervisor**: Noviyanti Santoso, S.Si., M.Si., Ph.D.
+> 
 > **Institution**: Departemen Statistika Bisnis, Fakultas Vokasi, Institut Teknologi Sepuluh Nopember (ITS), Surabaya, Indonesia  
 > **Official Archive**: [https://repository.its.ac.id/138439/](https://repository.its.ac.id/138439/)
 
