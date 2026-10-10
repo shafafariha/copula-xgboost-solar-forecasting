@@ -1,4 +1,4 @@
-# ☀️ Daily Probabilistic Solar Radiation Potential Forecasting using Copula and XGBoost
+# Daily Probabilistic Solar Radiation Potential Forecasting using Copula and XGBoost
 
 [![ITS Repository](https://img.shields.io/badge/ITS%20Repository-E--Print%20138439-003366?style=for-the-badge&logo=googlescholar&logoColor=white)](https://repository.its.ac.id/138439/)
 [![R Language](https://img.shields.io/badge/R-4.x-276DC3?style=for-the-badge&logo=r&logoColor=white)](https://www.r-project.org/)
@@ -15,13 +15,11 @@
 
 ---
 
-## 📌 Table of Contents
+## Table of Contents
 - [Executive Summary](#-executive-summary)
 - [Official Repository & Thesis Record](#-official-repository--thesis-record)
 - [Private Analysis & Code Availability Policy](#-private-analysis--code-availability-policy)
 - [Abstract](#-abstract)
-  - [Bahasa Indonesia](#bahasa-indonesia)
-  - [English](#english)
 - [Study Area & Meteorological Variables](#-study-area--meteorological-variables)
 - [Methodology & Pipeline Architecture](#-methodology--pipeline-architecture)
   - [1. Data Preprocessing & Unit Standardizations](#1-data-preprocessing--unit-standardizations)
@@ -39,7 +37,7 @@
 
 ---
 
-## 📖 Executive Summary
+## Executive Summary
 
 The escalating energy demand in Java Island and Indonesia's transition toward clean, sustainable energy have accelerated the deployment of Solar Photovoltaic (PLTS) systems. However, solar irradiance is inherently volatile, non-linear, and heavily governed by spatio-temporal atmospheric fluctuations. Deterministic point forecasts often fail to provide decision-makers with the uncertainty margins necessary for reliable electrical grid scheduling and risk management.
 
@@ -47,7 +45,7 @@ This research formulates an integrated **Copula and Regime-Aware XGBoost** frame
 
 ---
 
-## 🏛️ Official Repository & Thesis Record
+## Official Repository & Thesis Record
 
 The complete undergraduate thesis is officially archived in the **Institut Teknologi Sepuluh Nopember (ITS) Institutional Repository**:
 
@@ -59,33 +57,26 @@ The complete undergraduate thesis is officially archived in the **Institut Tekno
 
 ---
 
-## 🔒 Private Analysis & Code Availability Policy
+## Private Analysis & Code Availability Policy
 
 > **Notice Regarding Academic Data & Code Sharing:**  
 > This GitHub repository serves as the official public technical documentation and benchmark showcase for the bachelor's thesis. Because this research involves **proprietary academic meteorological datasets** and **confidential analytical models**, the underlying raw dataset (`DATA FINAL TA.csv`), spatial vector shapefiles, and raw R Markdown script (`TA FINAL.Rmd`) are maintained as **private assets**.
 >
-> 📬 **Requesting Source Code & Data:**  
+> **Requesting Source Code & Data:**  
 > Academic researchers, students, and collaborators wishing to inspect the full R scripts (`TA FINAL.Rmd`), pre-trained models (`.model`, `.rds`), or replication workflows for non-commercial academic validation may request access by contacting the author via email:
 > - **Author Email**: `shafafaraya@gmail.com`
 > - **Subject Line**: `[Code & Data Request] Thesis Copula-XGBoost Solar Forecasting - <Your Name / Affiliation>`
 
 ---
 
-## 📑 Abstract
-
-### Bahasa Indonesia
-Permintaan energi yang meningkat di Pulau Jawa dan ketergantungan Indonesia pada bahan bakar fosil menimbulkan tantangan bagi ketahanan energi dan keberlanjutan lingkungan. Energi surya merupakan solusi strategis, namun karakteristiknya yang sangat dipengaruhi kondisi cuaca membuat peramalan dayanya kompleks. Penelitian ini mengembangkan model prediksi distribusi probabilistik potensi radiasi surya berbasis Copula dan XGBoost, menggunakan data cuaca spasial-temporal di wilayah terpilih Pulau Jawa selama 2019–2023. 
-
-Hasil menunjukkan bahwa hubungan antara radiasi surya dan variabel meteorologi harian bersifat kompleks dan bervariasi antar sub-klaster cuaca. Copula bivariat mampu menangkap ketergantungan antar variabel, dengan seluruh parameter signifikan secara statistik. Pemilihan Copula multivariat optimal menunjukkan perbedaan karakteristik struktur ketergantungan, dengan Copula Gaussian merepresentasikan hubungan yang relatif simetris, sementara Copula Student-t menunjukkan adanya *tail dependence* pada kejadian radiasi ekstrem. XGBoost Classifier mengklasifikasikan dengan akurasi 0,926, sedangkan XGBoost Regressor menghasilkan prediksi dengan RMSE pengujian 0,0632 dan R² sebesar 0,8990. Evaluasi probabilistik menunjukkan kinerja yang andal dengan CRPS 0,0346, Pinball Loss rendah pada P10 (0,0116), P50 (0,0245), dan P90 (0,0102), serta sharpness 90% sebesar 0,1914. Secara keseluruhan, pendekatan Copula dan XGBoost menghasilkan prediksi probabilistik radiasi surya harian yang valid dan mendukung pengambilan keputusan berbasis risiko untuk perencanaan dan pengelolaan PLTS di Pulau Jawa.
-
-### English
+## Abstract
 Increasing energy demand in Java Island and Indonesia’s reliance on fossil fuels pose significant challenges to energy security and environmental sustainability. Solar energy represents a strategic solution; however, its strong dependence on weather conditions makes power forecasting complex. This study develops a probabilistic distribution prediction model for daily solar radiation potential using a Copula and XGBoost framework based on spatio-temporal weather data from selected regions in Java Island during 2019–2023. 
 
 The results indicate that the relationship between solar radiation and daily meteorological variables is complex and varies across weather sub-clusters. Bivariate copulas effectively capture the dependence structure among variables, with all parameters being statistically significant. Optimal multivariate copula selection reveals differences in dependence characteristics, where the Gaussian copula represents relatively symmetric dependence, while the Student-t copula indicates the presence of tail dependence in extreme solar radiation events. The XGBoost Classifier achieves an accuracy of 0.926, while the XGBoost Regressor provides reliable solar radiation predictions with a testing RMSE of 0.0632 and an R² value of 0.8990. Probabilistic evaluation demonstrates robust performance, reflected by a CRPS of 0.0346, low Pinball Loss values at P10 (0.0116), P50 (0.0245), and P90 (0.0102) quantiles, and a 90% sharpness of 0.1914. Overall, the proposed Copula and XGBoost approach produces valid probabilistic forecasts of daily solar radiation and supports risk-based decision-making for solar power plant planning and management in Java Island.
 
 ---
 
-## 🗺️ Study Area & Meteorological Variables
+## Study Area & Meteorological Variables
 
 The research analyzes spatio-temporal daily weather observations (2019–2023) across 6 representative regencies/cities in Java Island:
 1. **Purwakarta** (West Java)
@@ -108,7 +99,7 @@ The research analyzes spatio-temporal daily weather observations (2019–2023) a
 
 ---
 
-## ⚙️ Methodology & Pipeline Architecture
+## Methodology & Pipeline Architecture
 
 ```
 [ Spatio-Temporal Weather Observations (2019–2023) ]
@@ -275,7 +266,7 @@ $$
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```plaintext
 copula-xgboost-solar-forecasting/
@@ -293,7 +284,7 @@ copula-xgboost-solar-forecasting/
 
 ---
 
-## 💻 Tech Stack & R Packages
+## Tech Stack & R Packages
 
 - **Computational Environment**: [R (v4.x)](https://www.r-project.org/) & RStudio
 - **Dependence Modeling**: `copula` (Multivariate & Bivariate Archimedian/Elliptical Copulas), `corpcor` (Ledoit-Wolf Shrinkage)
@@ -306,7 +297,7 @@ copula-xgboost-solar-forecasting/
 
 ---
 
-## 📚 Citation
+## Citation
 
 If you find this research or methodology useful in your academic work, please cite the thesis as follows:
 
@@ -331,7 +322,7 @@ Tsuraya, S. F. (2026). Prediksi Distribusi Probabilistik Potensi Radiasi Surya H
 
 ---
 
-## ✉️ Contact & Inquiries
+## Contact & Inquiries
 
 * **Researcher**: Shafa Fariha Tsuraya
 * **GitHub**: [@shafafariha](https://github.com/shafafariha)
